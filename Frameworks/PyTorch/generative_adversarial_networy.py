@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 import os
 import torch
 import torchvision
@@ -16,7 +16,7 @@ hidden_size = 256
 image_size = 784
 num_epochs = 200
 batch_size = 100
-sample_dir = 'samples'
+sample_dir = 'outputs'
 
 # Create a directory if not exists
 if not os.path.exists(sample_dir):

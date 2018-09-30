@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 # 2016년에 가장 관심을 많이 받았던 비감독(Unsupervised) 학습 방법인
 # Generative Adversarial Network(GAN)을 구현해봅니다.
 # https://arxiv.org/abs/1406.2661
@@ -139,7 +139,7 @@ for epoch in range(total_epoch):
 			ax[i].set_axis_off()
 			ax[i].imshow(np.reshape(samples[i], (28, 28)))
 
-		plt.savefig('samples/{}.png'.format(str(epoch).zfill(3)), bbox_inches='tight')
+		plt.savefig('outputs/{}.png'.format(str(epoch).zfill(3)), bbox_inches='tight')
 		plt.close(fig)
 
 print('최적화 완료!')

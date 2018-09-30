@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 import os
 os.environ["KERAS_BACKEND"] = "tensorflow"
 import numpy as np
@@ -16,6 +16,7 @@ from keras.optimizers import Adam
 from keras import backend as K
 from keras import initializers
 
+K.tensorflow_backend._get_available_gpus()
 K.set_image_dim_ordering('th')
 
 # Deterministic output.
@@ -76,7 +77,7 @@ def plotLoss(epoch):
 	plt.xlabel('Epoch')
 	plt.ylabel('Loss')
 	plt.legend()
-	plt.savefig('images/gan_loss_epoch_%d.png' % epoch)
+	plt.savefig('outputs/gan_loss_epoch_%d.png' % epoch)
 
 # Create a wall of generated MNIST images
 def plotGeneratedImages(epoch, examples=100, dim=(10, 10), figsize=(10, 10)):
@@ -90,7 +91,7 @@ def plotGeneratedImages(epoch, examples=100, dim=(10, 10), figsize=(10, 10)):
 		plt.imshow(generatedImages[i], interpolation='nearest', cmap='gray_r')
 		plt.axis('off')
 	plt.tight_layout()
-	plt.savefig('images/gan_generated_image_epoch_%d.png' % epoch)
+	plt.savefig('outputs/gan_generated_image_epoch_%d.png' % epoch)
 
 # Save the generator and discriminator networks (and weights) for later use
 def saveModels(epoch):
@@ -142,4 +143,4 @@ def train(epochs=1, batchSize=128):
 	plotLoss(e)
 
 if __name__ == '__main__':
-	train(200, 128)
+	train(100, 128)
