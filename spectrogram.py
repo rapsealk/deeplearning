@@ -45,6 +45,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import scipy.io.wavfile as wav
 from numpy.lib import stride_tricks
+#import cv2
+import time
 
 def short_time_fourier_transform(sig, frameSize, overlapFac=0.5, window=np.hanning):
 	win = window(frameSize)
@@ -135,4 +137,4 @@ if __name__ == '__main__':
 	#filename = "./wav/1523787174095.wav"
 	#filename = "./wav/test_mono_44100Hz_16bit_PCM.wav"
 	filename = "./wav/1528205058755.wav"
-	plotstft(filename)
+	plotstft(filename, plotpath='./spectrogram/{}.png'.format(int(time.time())))
